@@ -1,0 +1,16 @@
+/build/
+/bin/
+
+# Eclipse project files
+.classpath
+.project
+.settings
+
+#Gradle
+.gradletasknamecache
+.gradle/
+build/
+bin/
+
+
+.DS_Store

@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+group = 'test'
+version = '0.0.1-SNAPSHOT'
+
+description = "gradle-importer to test remap jar feature"
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+def springBootRelease = '1.2.1.RELEASE'
+def springRelease = '4.1.4.RELEASE' //spring boot 1.2.1 is built against 4.1.4. Must keep these in sync
+
+repositories {
+     maven { url "file://${projectDir}/libs" }
+     mavenLocal()
+     mavenCentral()
+}
+
+dependencies {
+    compile(group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa',  version:"${springBootRelease}")
+    compile(group: 'org.springframework.boot', name: 'spring-boot-starter-web',       version:"${springBootRelease}")
+    compile(group: 'org.springframework.boot', name: 'spring-boot-starter-websocket', version:"${springBootRelease}")
+    compile(group: 'org.springframework',      name: 'spring-messaging',			  version:"${springRelease}")
+    compile(group: 'test',                     name: 'maven-toimport',                version:'0.0.1')
+}
+
